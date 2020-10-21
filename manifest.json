@@ -1,5 +1,5 @@
  {
-    "name": "LeetCode problem a day",
+    "name": "LeetCode Daily",
     "version": "0.1",
     "description": "Show a single leetcode question everyday",
     "manifest_version": 2,
@@ -12,8 +12,8 @@
         "storage"
     ],
     "background": {
-        "scripts": ["background.js"],
-        "persisten": true
+        "scripts": ["startup.js"],
+        "persistent": true
     },
     "page_action": {
         "default_popup": "popup.html",
