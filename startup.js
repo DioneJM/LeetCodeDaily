@@ -50,12 +50,7 @@ chrome.runtime.onInstalled.addListener(function () {
                 const timestampCallback = (timestampResult) => {
                     const timestamp = timestampResult.timestamp;
                     console.log('timestamp from storage: ', timestampResult);
-                    // const currentMinute = Date.now().getMinutes();
-                    // console.log('time diff: ', {
-                    //     cached: timestampResult
-                    // })
                 }
-                // chrome.storage.sync.get('timestamp', timestampCallback);
 
                 if (!cachedProblemUrl) {
                     console.log('no cache found, getting new problem');
