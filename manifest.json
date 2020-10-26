@@ -12,7 +12,7 @@
         "storage"
     ],
     "background": {
-        "scripts": ["startup.js"],
+        "scripts": ["dist/main.js"],
         "persistent": true
     },
     "page_action": {

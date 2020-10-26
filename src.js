@@ -13,6 +13,7 @@ const leetCodeProblemsWildCards = [
     "*://*.leetcode.com/problems/*",
     "*://leetcode.com/problems/*"
 ]
+const leetCodeRandomQuestionURL = 'https://leetcode.com/problems/random-one-question/all';
 
 chrome.runtime.onInstalled.addListener(function () {
     chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
@@ -55,7 +56,7 @@ chrome.runtime.onInstalled.addListener(function () {
                 if (!cachedProblemUrl) {
                     console.log('no cache found, getting new problem');
                     const updateProperties = {
-                        url: 'https://leetcode.com/problems/random-one-question/all',
+                        url: leetCodeRandomQuestionURL,
                         active: true,
                     }
                     const tabCallback = (tab) => {
@@ -105,7 +106,7 @@ chrome.runtime.onInstalled.addListener(function () {
                         chrome.storage.sync.remove('webRedirect', function () {
                             console.log('removed value for webRedirect');
                             const updateProperties = {
-                                url: 'https://leetcode.com/problems/random-one-question/all',
+                                url: leetCodeRandomQuestionURL,
                                 active: true,
     
                             }

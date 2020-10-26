@@ -1,17 +1,29 @@
  <!DOCTYPE html>
-  <html>
-    <head>
-      <style>
-        button {
-          height: 30px;
-          width: 30px;
-          outline: none;
-        }
-      </style>
-    </head>
-    <body>
-        <h4>New Question</h4>
-      <button id="changeColor"></button>
-      <script src="popup.js"></script>
-    </body>
-  </html>
+ <html>
+
+ <head>
+   <style>
+     button {
+       height: 30px;
+       width: 30px;
+       outline: none;
+       border-radius: 5px;
+     }
+     .content {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+     }
+   </style>
+ </head>
+
+ <body>
+   <div class="content">
+     <span>New Question</span>
+     <button id="changeColor"></button>
+   </div>
+   <script src="popup.js"></script>
+ </body>
+
+ </html>
