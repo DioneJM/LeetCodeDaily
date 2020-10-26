@@ -1,0 +1,23 @@
+{
+  "name": "leetcodedaily",
+  "version": "1.0.0",
+  "description": "Chrome web extension to show a new leetcode problem on new tab daily",
+  "main": "startup.js",
+  "dependencies": {
+    "webpack": "^5.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DioneJM/LeetCodeDaily.git"
+  },
+  "author": "Dione M",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/DioneJM/LeetCodeDaily/issues"
+  },
+  "homepage": "https://github.com/DioneJM/LeetCodeDaily#readme"
+}
