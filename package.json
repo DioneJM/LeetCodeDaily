@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "My webpack project",
   "main": "startup.js",
-  "dependencies": {},
+  "dependencies": {
+    "date-fns": "^2.16.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",

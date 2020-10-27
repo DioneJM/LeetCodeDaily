@@ -1,6 +1,7 @@
 import StorageSync from '../storage/storage';
 import { leetCodeRandomQuestionUrl } from '../../../config/leetcode';
 import { chromeNewTabUrl } from '../../../config/chrome';
+import { isSameDay } from 'date-fns';
 
 
 export default class Tabs {
@@ -63,14 +64,11 @@ export default class Tabs {
                 }
 
                 const lastLoadTimestamp = await StorageSync.getAsync('lastLoadTimestamp');
-                const currentTimestamp = new Date(Math.floor(lastLoadTimestamp) || 0);
+                const currentTimestamp = new Date(lastLoadTimestamp);
                 const problemCacheTimestamp = await StorageSync.getAsync('problemCacheTimestamp');
-                const problemTimestamp = new Date(Math.floor(problemCacheTimestamp) || 0);
+                const problemTimestamp = new Date(problemCacheTimestamp);
 
-                const dateIsDifferent = currentTimestamp.getDate() !== currentTimestamp.getDate();
-                const isNewDay = currentTimestamp.getDay() > problemTimestamp.getDay() || (currentTimestamp.getDay() == 0 && problemTimestamp.getDay() == 6);
-
-                if (isNewDay || dateIsDifferent) {
+                if (!isSameDay(currentTimestamp, problemTimestamp)) {
                     await StorageSync.removeAsync('webRedirect');
                     const redirectCallback = async (tab) => {
                         await StorageSync.set({ problemCacheTimestamp: lastLoadTimestamp });
