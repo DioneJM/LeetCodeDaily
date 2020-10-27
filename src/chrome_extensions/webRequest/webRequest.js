@@ -3,7 +3,7 @@ import {
     leetCodeWildCards,
     leetCodeProblemsWildCards,
     leetCodeRandomQuestionUrl,
-} from '../../config/leetcode';
+} from '../../../config/leetcode';
 import StorageSync from '../storage/storage';
 
 export default class WebRequest {

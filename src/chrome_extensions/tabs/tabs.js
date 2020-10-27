@@ -1,6 +1,6 @@
 import StorageSync from '../storage/storage';
-import { leetCodeRandomQuestionUrl } from '../../config/leetcode';
-import { chromeNewTabUrl } from '../../config/chrome';
+import { leetCodeRandomQuestionUrl } from '../../../config/leetcode';
+import { chromeNewTabUrl } from '../../../config/chrome';
 
 
 export default class Tabs {
@@ -72,7 +72,7 @@ export default class Tabs {
 
                 if (isNewDay || dateIsDifferent) {
                     await StorageSync.removeAsync('webRedirect');
-                    const redirectCallback = (tab) => {
+                    const redirectCallback = async (tab) => {
                         await StorageSync.set({ problemCacheTimestamp: lastLoadTimestamp });
                     }
                     Tabs.redirectToUrl(leetCodeRandomQuestionUrl, redirectCallback);
