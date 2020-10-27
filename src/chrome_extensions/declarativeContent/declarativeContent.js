@@ -1,6 +1,5 @@
 import { pageUrlMatcher } from "./config";
 
-
 export default class DeclarativeContent {
 
     static registerOnPageChangedListener() {

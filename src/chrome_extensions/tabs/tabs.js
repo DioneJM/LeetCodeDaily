@@ -3,7 +3,6 @@ import { leetCodeRandomQuestionUrl } from '../../../config/leetcode';
 import { chromeNewTabUrl } from '../../../config/chrome';
 import { isSameDay } from 'date-fns';
 
-
 export default class Tabs {
 
     static async registerOnCreatedListener() {

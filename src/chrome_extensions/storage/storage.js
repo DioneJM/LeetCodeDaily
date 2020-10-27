@@ -1,5 +1,4 @@
 
-
 export default class StorageSync {
 
     /**
@@ -7,7 +6,7 @@ export default class StorageSync {
      * @param {{key: value}} item - object containing item key/value pair
      * @returns void 
      */
-    static async set(item, onSet) {
+    static async set(item) {
         return new Promise(
             (resolve, reject) => {
                 chrome.storage.sync.set(item, function () {
