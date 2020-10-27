@@ -26,7 +26,7 @@ export default class WebRequest {
     static registerOnBeforeRequestListener() {
         chrome.webRequest.onBeforeRequest.addListener(
             async function (details) {
-                await StorageSync.set({ lastLoadTimestamp: details.timeStamp });
+                StorageSync.set({ lastLoadTimestamp: details.timeStamp });
             },
             { urls: [...leetCodeProblemsWildCards] }
         )

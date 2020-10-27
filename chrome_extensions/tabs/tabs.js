@@ -73,7 +73,7 @@ export default class Tabs {
                 if (isNewDay || dateIsDifferent) {
                     await StorageSync.removeAsync('webRedirect');
                     const redirectCallback = (tab) => {
-                        StorageSync.set({ problemCacheTimestamp: lastLoadTimestamp });
+                        await StorageSync.set({ problemCacheTimestamp: lastLoadTimestamp });
                     }
                     Tabs.redirectToUrl(leetCodeRandomQuestionUrl, redirectCallback);
                 }

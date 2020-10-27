@@ -3,30 +3,27 @@
 export default class StorageSync {
 
     /**
-     * 
-     * @param {{key: value}} item - object containing item key used to set/get and value of item
-     * @param {() => void=} onSet
+     * Asynchronously stores `value` under specified `key`
+     * @param {{key: value}} item - object containing item key/value pair
      * @returns void 
      */
-    static set(item, onSet) { // TODO refactor this to be wrapped in a promise rather than having an onSet callback
-        chrome.storage.sync.set(item, function () {
-            if (onSet == undefined) {
-                return;
+    static async set(item, onSet) {
+        return new Promise(
+            (resolve, reject) => {
+                chrome.storage.sync.set(item, function () {
+                    resolve();
+                })
             }
-            if (typeof onSet !== 'function') {
-                throw new Error('onSet callback must be a function if defined, it is a: ', typeof onSet);
-            }
-            onSet();
-        })
+        )
     }
 
     /**
-     * 
+     * Asynchronously retrieves item using specified key. A default value can also be specified which will be returned when the item is unable to be found.
      * @param {string} key - item key used to retrieve item from sync storage
      * @param {T=} defaultValue [defaultValue=undefined] - the default fallback value if no value is found for the associated key. If no value is provided it defaults to `undefined`
      * @returns {T} item
      */
-    static getAsync(key, defaultValue) {
+    static async getAsync(key, defaultValue) {
         return new Promise(
             (resolve, reject) => {
                 let item = defaultValue || undefined;
@@ -43,7 +40,11 @@ export default class StorageSync {
 
     }
 
-    static removeAsync(key) {
+    /**
+     * Asynchronously removes item stored in specified key
+     * @param {string} key 
+     */
+    static async removeAsync(key) {
         return new Promise(
             (resolve, reject) => {
                 chrome.storage.sync.remove('webRedirect', function () {
